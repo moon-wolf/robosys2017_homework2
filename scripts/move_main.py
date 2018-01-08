@@ -31,7 +31,7 @@ def callback(data):
 	print data
 	
 	if data.linear.x > 0:
-		text = 'a',int(1000 * data.linear.x)
+		text = 'a',int(100 * data.linear.x)
 	if data.linear.x == 0 and data.angular.z < 0:
 		text = 'r',int(math.degrees(-data.angular.z))
 	if data.linear.x == 0 and data.angular.z > 0:
