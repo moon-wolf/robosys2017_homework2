@@ -6,9 +6,9 @@
 
 ## 自作したロボット
 
-* Raspberry Pi W (OS: raspbian-jessie-lite)
+* Raspberry Pi Zero W （OS: raspbian-jessie-lite）
 * ROS indigo
-* 秋月電子通商が販売しているＤＲＶ８８３５使用ステッピング＆ＤＣモータドライバモジュールを使用
+* ステッピングモータの制御に秋月電子通商が販売しているＤＲＶ８８３５使用ステッピング＆ＤＣモータドライバモジュールを使用
 　http://akizukidenshi.com/catalog/g/gK-09848/
 
 ## License
@@ -16,3 +16,5 @@
 * This repository is licensed under the BSD 3-clause "New" or "Revised" License, see LICENSE.
 
 ## Demo video
+
+* 準備中
