@@ -8,7 +8,7 @@
 
 * Raspberry Pi Zero W （OS: raspbian-jessie-lite）
 * ROS indigo
-* ステッピングモータの制御に秋月電子通商が販売しているＤＲＶ８８３５使用ステッピング＆ＤＣモータドライバモジュールを使用
+* ステッピングモータの制御にＤＲＶ８８３５使用ステッピング＆ＤＣモータドライバモジュールを使用
 　http://akizukidenshi.com/catalog/g/gK-09848/
 
 ## License
