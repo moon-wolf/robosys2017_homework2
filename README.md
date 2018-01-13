@@ -17,4 +17,4 @@
 
 ## Demo video
 
-[![](https://img.youtube.com/vi/k24e7c65K00&feature=youtu.be/0.jpg)](https://www.youtube.com/watch?v=k24e7c65K00&feature=youtu.be)
+[![](https://img.youtube.com/vi/k24e7c65K00/0.jpg)](https://www.youtube.com/watch?v=k24e7c65K00)
