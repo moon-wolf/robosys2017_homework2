@@ -15,7 +15,7 @@ def main():
 		
 		if direction == 'f':
 			rospy.loginfo("Go ahead")
-			vel.linear.x = 1.0 
+			vel.linear.x = 0.2
 		if direction == 'r':
 			rospy.loginfo("Turn right")
 			vel.angular.z = -math.pi/2

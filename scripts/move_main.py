@@ -2,7 +2,8 @@
 
 import rospy
 import math
-#import RPi.GPIO as GPIO
+import time
+import RPi.GPIO as GPIO
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 
@@ -18,7 +19,10 @@ CHANNEL6 = 33   #A_ENBLE
 CHANNEL7 = 35   #B_PHASE
 CHANNEL8 = 37   #B_ENBLE
 
-cmd = "python step.py"
+WIDTH = 90
+
+CMD_R = "python step_right.py"
+CMD_L = "python step_left.py"
 
 def clean_up():
     channels = [CHANNEL1,CHANNEL2,CHANNEL3,CHANNEL4,CHANNEL5,CHANNEL6,CHANNEL7,CHANNEL8]
@@ -28,27 +32,29 @@ def clean_up():
     GPIO.cleanup(channels)
 
 def callback(data):
-	print data
-	
+	velocity_r = 0
+	velocity_l = 0
+
+	rospy.loginfo("data.linear.x  :%s [m/s]",data.linear.x)
+	rospy.loginfo("data.angular.z :%s [rad/s]",data.angular.z)
+
+	if data.angular.z != 0:
+		velocity_r = float(WIDTH)*math.pi*data.angular.z/(4*1000)
+		velocity_l = -float(WIDTH)*math.pi*data.angular.z/(4*1000)
+
 	if data.linear.x > 0:
-		text = 'a',int(100 * data.linear.x)
-	if data.linear.x == 0 and data.angular.z < 0:
-		text = 'r',int(math.degrees(-data.angular.z))
-	if data.linear.x == 0 and data.angular.z > 0:
-		text = 'l',int(math.degrees(data.angular.z))
+		velocity_r += data.linear.x
+		velocity_l += data.linear.x
+
+	temp_r = CMD_R + ' ' + str(velocity_r)
+	temp_l = CMD_L + ' ' + str(velocity_l)
+	r_proc = subprocess.Popen(temp_r.strip().split(" "))
+	l_proc = subprocess.Popen(temp_l.strip().split(" "))
+	time.sleep(1)
+	r_proc.terminate()
+	l_proc.terminate()
+	clean_up()
 	
-	#print text[0]
-	#print text[1]
-	'''
-	if len(text) > 1:
-		temp_cmd = cmd + " " + text[0] + " " + text[1]
-		print temp_cmd
-		proc = subprocess.Popen( temp_cmd .strip().split(" ") )
-	
-	if text[0] == 'c':
-		proc.terminate()
-		clean_up()
-	'''
 def main():	
 	rospy.init_node("move_main", anonymous=True)
 	rospy.Subscriber("/turtle1/cmd_vel",Twist,callback)
