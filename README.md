@@ -11,14 +11,10 @@
 * ステッピングモータの制御にＤＲＶ８８３５使用ステッピング＆ＤＣモータドライバモジュールを使用
 　http://akizukidenshi.com/catalog/g/gK-09848/
 
-## 使用方法
-
-
-
 ## License
 
 * This repository is licensed under the BSD 3-clause "New" or "Revised" License, see LICENSE.
 
 ## Demo video
 
-* 準備中
+[![](https://img.youtube.com/vi/k24e7c65K00&feature=youtu.be/0.jpg)](https://www.youtube.com/watch?v=k24e7c65K00&feature=youtu.be)
